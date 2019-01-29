@@ -15,14 +15,15 @@ class VideoTableViewCell: UITableViewCell {
     @IBOutlet weak var videoView: YouTubePlayerView!
     @IBOutlet weak var activityIndic: UIActivityIndicatorView!
     
-   
-    func config(embeddedID: String) {
-        
-       // videoView.playerVars = ["controls": 0, "playsinline": 1] as YouTubePlayerView.YouTubePlayerParameters
-        let myVideoURL = NSURL(string: "https://www.youtube.com/watch?v=\(embeddedID)")
-        videoView.loadVideoURL(myVideoURL! as URL)
-        
-    }
+    var funcs = VideoTableViewCellFunc.shared
+    
+//    func config(embeddedID: String) {
+//
+//       // videoView.playerVars = ["controls": 0, "playsinline": 1] as YouTubePlayerView.YouTubePlayerParameters
+//        let myVideoURL = NSURL(string: "https://www.youtube.com/watch?v=\(embeddedID)")
+//        videoView.loadVideoURL(myVideoURL! as URL)
+//
+//    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
