@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,68 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="YouTubePlayerRep" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vFB-mz-2l3">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoTableViewCell" rowHeight="250" id="NZe-GR-T0c" customClass="VideoTableViewCell" customModule="YouTubePlayerRep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NZe-GR-T0c" id="4j5-3n-qS3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="249.66666666666666"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVX-9p-KKv" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                                    <rect key="frame" x="8" y="8" width="359" height="233.66666666666666"/>
+                                                    <subviews>
+                                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kTy-Yi-icN">
+                                                            <rect key="frame" x="161" y="98.333333333333329" width="37" height="36.999999999999986"/>
+                                                            <color key="color" red="0.2494296432" green="0.69562238450000002" blue="0.32849159839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </activityIndicatorView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="kTy-Yi-icN" firstAttribute="centerX" secondItem="aVX-9p-KKv" secondAttribute="centerX" id="GT8-3F-uAN"/>
+                                                        <constraint firstItem="kTy-Yi-icN" firstAttribute="centerY" secondItem="aVX-9p-KKv" secondAttribute="centerY" id="Jg0-SV-uV2"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aVX-9p-KKv" firstAttribute="leading" secondItem="4j5-3n-qS3" secondAttribute="leading" constant="8" id="Z4j-QZ-qdV"/>
+                                                <constraint firstAttribute="bottom" secondItem="aVX-9p-KKv" secondAttribute="bottom" constant="8" id="gA3-pd-BAD"/>
+                                                <constraint firstItem="aVX-9p-KKv" firstAttribute="top" secondItem="4j5-3n-qS3" secondAttribute="top" constant="8" id="u05-et-Ytg"/>
+                                                <constraint firstAttribute="trailing" secondItem="aVX-9p-KKv" secondAttribute="trailing" constant="8" id="zdx-JI-gN4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityIndic" destination="kTy-Yi-icN" id="hnX-Eh-YKB"/>
+                                            <outlet property="videoView" destination="aVX-9p-KKv" id="guI-nJ-cKT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tok-vY-fCR"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BBB-Bj-Z4b"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vFB-mz-2l3" secondAttribute="trailing" id="5ih-wu-rg7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vFB-mz-2l3" secondAttribute="bottom" id="T8s-wL-ne8"/>
+                            <constraint firstItem="vFB-mz-2l3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Zr1-Qc-Oan"/>
+                            <constraint firstItem="vFB-mz-2l3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="img-Fk-ea5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="videoTable" destination="vFB-mz-2l3" id="hCf-dv-i8z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
